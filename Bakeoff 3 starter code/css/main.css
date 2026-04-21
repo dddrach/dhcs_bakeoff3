@@ -1,0 +1,218 @@
+/* Layout */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100vh;
+	width: 100%;
+	margin: 0;
+	font-family: system-ui, Segoe UI, Roboto, sans-serif;
+	background: #f4f4f6;
+	color: #1a1a1e;
+}
+
+#main {
+	max-width: 42rem;
+	margin: 0 auto;
+	padding: 1.25rem 1rem 2rem;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+/* Browse (middle) */
+#browsePanel label[for="movieSearch"] {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 0.35rem;
+	font-size: 0.95rem;
+}
+
+#movieSearch {
+	width: 100%;
+	padding: 0.6rem 0.75rem;
+	font-size: 1rem;
+	border: 1px solid #c8c8d0;
+	border-radius: 8px;
+	background: #fff;
+}
+
+#movieSearch:focus {
+	outline: 2px solid #6ca0ea;
+	outline-offset: 1px;
+}
+
+.movie-list {
+	margin-top: 0.75rem;
+	max-height: min(50vh, 22rem);
+	overflow-y: auto;
+	border: 1px solid #d0d0d8;
+	border-radius: 10px;
+	background: #fff;
+	padding: 0.5rem;
+}
+
+.movie-list-empty {
+	padding: 1.25rem;
+	text-align: center;
+	color: #555;
+	font-size: 0.95rem;
+}
+
+.movie-card {
+	border: 1px solid #e4e4ea;
+	border-radius: 8px;
+	padding: 0.85rem 1rem;
+	margin-bottom: 0.5rem;
+	cursor: pointer;
+	text-align: left;
+	transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.movie-card:last-child {
+	margin-bottom: 0;
+}
+
+.movie-card:hover,
+.movie-card:focus-visible {
+	border-color: #6ca0ea;
+	box-shadow: 0 2px 8px rgba(108, 160, 234, 0.2);
+}
+
+.movie-card:focus-visible {
+	outline: none;
+}
+
+.movie-card h3 {
+	margin: 0 0 0.4rem;
+	font-size: 1.05rem;
+}
+
+.movie-card .meta {
+	font-size: 0.8rem;
+	color: #5c5c68;
+	margin-bottom: 0.45rem;
+}
+
+.movie-card p.description {
+	margin: 0 0 0.5rem;
+	font-size: 0.9rem;
+	line-height: 1.45;
+	color: #333;
+}
+
+.movie-card p.actors {
+	margin: 0;
+	font-size: 0.85rem;
+	color: #444;
+}
+
+.movie-card p.actors strong {
+	font-weight: 600;
+	color: #222;
+}
+
+/* Checkout */
+#checkoutPanel h2 {
+	margin: 0 0 0.75rem;
+	font-size: 1.25rem;
+}
+
+#checkoutSummary {
+	background: #fff;
+	border: 1px solid #d0d0d8;
+	border-radius: 10px;
+	padding: 1rem 1.1rem;
+	line-height: 1.5;
+}
+
+#checkoutSummary h3 {
+	margin: 0 0 0.5rem;
+	font-size: 1.1rem;
+}
+
+.checkout-note {
+	font-size: 0.85rem;
+	color: #666;
+	margin: 0.75rem 0 1rem;
+}
+
+#backToBrowse {
+	padding: 0.5rem 1rem;
+	font-size: 0.95rem;
+	border-radius: 8px;
+	border: 1px solid #c8c8d0;
+	background: #fff;
+	cursor: pointer;
+}
+
+#backToBrowse:hover {
+	background: #f0f4fc;
+	border-color: #6ca0ea;
+}
+
+.panel-hidden {
+	display: none !important;
+}
+
+/* Teammate form */
+#ticketForm {
+	background: #fff;
+	border: 1px solid #d0d0d8;
+	border-radius: 10px;
+	padding: 1.25rem;
+}
+
+#ticketForm label {
+	display: block;
+	margin-top: 0.75rem;
+	font-weight: 500;
+}
+
+#ticketForm label:first-of-type {
+	margin-top: 0;
+}
+
+.integration-selects {
+	/* Screen-reader friendly hide: keeps selects in DOM for Judge / teammates */
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+form input[type="text"],
+form select {
+	width: 100%;
+	max-width: 100%;
+	margin-top: 0.25rem;
+	padding: 0.45rem 0.5rem;
+	font-size: 1rem;
+}
+
+form input[type="range"] {
+	width: 100%;
+	max-width: 20rem;
+}
+
+form input[type="button"] {
+	margin-top: 1rem;
+	padding: 0.55rem 1.25rem;
+	font-size: 1rem;
+	cursor: pointer;
+	border-radius: 8px;
+	border: 1px solid #333;
+	background: #1a1a1e;
+	color: #fff;
+}
+
+form input[type="button"]:hover {
+	opacity: 0.9;
+}

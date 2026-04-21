@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bakeoff 3</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+	<body>
+		<!-- You *may* edit the HTML this time. -->
+		<div id="main">
+			<!-- Middle: search + scrollable results (your section) -->
+			<section id="browsePanel" aria-label="Find a movie">
+				<label for="movieSearch">Search by title, actor, genre, or keyword</label>
+				<input type="search" id="movieSearch" placeholder="e.g. Bowie, sci-fi, dystopian…" autocomplete="off" />
+				<div id="movieList" class="movie-list" role="list"></div>
+			</section>
+
+			<!-- Barebones checkout after a movie is chosen -->
+			<section id="checkoutPanel" class="panel-hidden" aria-label="Checkout">
+				<h2>Checkout</h2>
+				<div id="checkoutSummary"></div>
+				<p class="checkout-note"></p>
+				<button type="button" id="backToBrowse">← Back to movies</button>
+			</section>
+
+			<!-- Teammates: showtime + tickets + submit (keep IDs for main.js / Judge) -->
+			<form id="ticketForm">
+				<div class="integration-selects">
+					<label for="titleSelect">Movie (synced with your selection above)</label>
+					<select id="titleSelect"></select>
+					<label for="timeSelect">Select a showtime...</label>
+					<select id="timeSelect"></select>
+				</div>
+				<hr>
+				<label for="numberOfTickets">How many tickets?</label>
+				<input type="range" id="numberOfTickets" min="1" max="200" value="1" step="1" oninput="this.nextElementSibling.value = this.value"/>
+				<output>1</output>
+
+				<label for="userName">Your name:</label>
+				<input type="text" id="userName"/>
+
+				<input type="button" id="submit" value="Send" />
+			</form>
+		</div>
+	</body>
+	<!-- The following line, "./js/framework.js", *will* be changed before the real Bakeoff. -->
+	<script src="./js/framework.js"></script>
+	<!-- Your js code should be loaded from local file: -->
+	<script src="./js/main.js"></script>
+</html>
