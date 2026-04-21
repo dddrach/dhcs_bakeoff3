@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bakeoff 3</title>
+		<link rel="stylesheet" type="text/css" href="CSS/main.css">
+	</head>
+	<body>
+		<!-- You *may* edit the HTML this time. -->
+		<h1 id = "header">Welcome to the GANK Movie Finder</h1>
+		<div id="main">
+			<form>
+				<!-- Search bar -->
+				<label for="searchInput">Search keywords / actors</label>
+    			<input type="text" id="searchInput" placeholder="Search keyword, actors..." />
+
+				<!-- Genre dropdown -->
+				<label for="genreSelect">Genres</label>
+				<select id="genreSelect">
+					<option value="">Select a genre</option>
+				</select>
+				
+				<!-- Time dropdown -->
+				<label for="timeSelect">Available times</label>
+				<select id="timeSelect">
+					<option value="">Select a time</option>
+				</select>
+
+				<!-- POSSIBLE CHANGE FOR ITERATION 2!! 
+					Change time dropdown to a start and end time range. 
+					I'd like to make it a draggable range but havent 
+					implemented that yet -->
+					
+				<!-- <label for="startTime">Available time range</label>
+				<div class="time-range">
+					<input type="time" id="startTime" />
+					<span>to</span>
+					<input type="time" id="endTime" />
+				</div> -->
+			
+				<br><br>
+				<input type="button" id="search" value="SEARCH" />
+
+				<!-- <input type="button" id="submit" value="Send" /> -->
+			</form>
+		</div>
+	</body>
+	<!-- The following line, "./js/framework.js", *will* be changed before the real Bakeoff. -->
+	<script src="./js/framework.js"></script>
+	<!-- Your js code should be loaded from local file: -->
+	<script src="./js/main.js"></script>
+</html>
