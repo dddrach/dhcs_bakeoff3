@@ -40,7 +40,7 @@ window.addEventListener("load", (e) => {
     const genreSet = new Set();
     const timeSet = new Set();
 
-    movies.forEach((movie) => {
+    movies.forEach((movie) => { // Add all movie genres and times to genreSet and timeSet, respectively
         console.log(movie)
         movie.genres.forEach((genre) => {
             genreSet.add(genre);
@@ -50,14 +50,14 @@ window.addEventListener("load", (e) => {
         });
     });
 
-    genreSet.forEach((genre) => {
+    genreSet.forEach((genre) => { // Render genres in dropdown menu
         const opt = document.createElement("option");
         opt.innerText = genre;
         opt.value = genre;
         genreSelect.appendChild(opt);
     });
 
-    timeSet.forEach((time) => {
+    timeSet.forEach((time) => { // Render times in dropdown menu
         const opt = document.createElement("option");
         opt.innerText = time;
         opt.value = time;
@@ -110,12 +110,13 @@ window.addEventListener("load", (e) => {
     
             const matchesTime =
                 selectedTime === "" || movie.movieTimes.includes(selectedTime);
-    
+
+            // Ensures only movies that match the keyword, genre, and time are displayed
             return matchesKeyword && matchesGenre && matchesTime;
         });
     }
 
-
+    // Render the movies that match the user's specified keyword, genre, and time
     function renderMovieList(list) {
         movieList.innerHTML = "";
     
@@ -160,7 +161,8 @@ window.addEventListener("load", (e) => {
             movieList.appendChild(card);
         });
     }
-    
+
+    // If we want to return to the first "search" page, hide the results/movielist page and unhide the search page
     toSearchButton.addEventListener("click", () => {
         resultsPage.classList.add("hidden");
         searchPage.classList.remove("hidden");
