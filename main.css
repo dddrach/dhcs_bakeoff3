@@ -1,74 +1,225 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
-    min-height: 100vh;
-}
-
-#main {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 60px 60px;
-}
-
-form {
-    width: 100%;
+	min-height: 100vh;
+	width: 100%;
+	margin: 0;
+	font-family: system-ui, Segoe UI, Roboto, sans-serif;
+	background: #f4f4f6;
+	color: #1a1a1e;
 }
 
 label {
     display: block;
 	font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 10px;
+	font-size: 16pt;
 }
 
-/* Title Block */
+button {
+    padding: 10px 10px;
+    font-size: 16px;
+    border: 2px solid #333;
+    border-radius: 14px;
+    background-color: rgb(157, 195, 157);
+    cursor: pointer;
+}
+
+select {
+	margin: 10px;
+}
+
+
+/* Unique Button Styles */
+
+#search:hover {
+    background-color: #e9e9e9;
+}
+
+
+/* Hide different "pages" at different points in execution */
+.hidden {
+	display: none;
+}
+
+/* Website header and overall structure */
+
+.content{
+	margin: 10px;
+}
 
 #header {
     width: 100%;
     margin: 0;
     padding: 20px 40px;
-    background-color: pink;
+    background-color: rgb(21, 67, 46);
 	font-size: 32px;
     text-align: left;
-    color: black;
+    color: white;
+}
+
+#main {
+	max-width: 42rem;
+	margin: 0 auto;
+	padding: 1.25rem 1rem 2rem;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
 }
 
 /* Keyword Seach */
 
-#searchInput {
-    width: 100%;
-    padding: 20px;
+#searchBarSection {
+	width: 100%;
+	padding: 20px;
+	background-color: rgb(212, 212, 212);
+}
+
+#keywordSearch {
+    width: 95%;
+    padding: 10px;
     font-size: 16px;
-    border: 3px solid #333;
+    border: 2px solid #333;
     border-radius: 40px;
+	border-color:rgb(21, 67, 46);
+	background-color: rgb(212, 230, 236);
     box-sizing: border-box;
+	margin-top: 10px;
 }
 
 /* Genre Select */
 
-#genreSelect {
-    width: 100%;
-    padding: 20px;
+#genreSelect, #timeSelect {
+    width: 95%;
+    padding: 10px;
     font-size: 16px;
-    border: 3px solid #333;
+    border: 2px solid #333;
     border-radius: 10px;
-    background-color: white;
+	background-color: white;
     box-sizing: border-box;
 }
 
-/* Search Button  */
+/* Scrollable Movie List */
 
-#search {
-    padding: 18px 48px;
-    font-size: 16px;
-    border: 3px solid #333;
-    border-radius: 14px;
-    background-color: white;
-    cursor: pointer;
+.movie-list {
+    margin-top: 0.75rem;
+    max-height: min(50vh, 22rem);
+    overflow-y: auto;
+    border: 1px solid #d0d0d8;
+    border-radius: 10px;
+    background: #fff;
+    padding: 0.5rem;
 }
 
-#search:hover {
-    background-color: #e9e9e9;
+.movie-list-empty {
+    padding: 1.25rem;
+    text-align: center;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.movie-card {
+    border: 1px solid #e4e4ea;
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.movie-card:last-child {
+    margin-bottom: 0;
+}
+
+.movie-card:hover,
+.movie-card:focus-visible {
+    border-color: #6ca0ea;
+    box-shadow: 0 2px 8px rgba(108, 160, 234, 0.2);
+}
+
+.movie-card:focus-visible {
+    outline: none;
+}
+
+.movie-card h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.05rem;
+}
+
+.movie-card .meta {
+    font-size: 0.8rem;
+    color: #5c5c68;
+    margin-bottom: 0.45rem;
+}
+
+.movie-card p.description {
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: #333;
+}
+
+.movie-card p.actors {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #444;
+}
+
+.movie-card p.actors strong {
+    font-weight: 600;
+    color: #222;
+}
+
+/* Checkout Summary */
+
+#checkoutSummary {
+	background: #fff;
+	border: 1px solid #d0d0d8;
+	border-radius: 10px;
+	padding: 1rem 1.1rem;
+	line-height: 1.5;
+}
+
+#checkoutPage label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+#checkoutPage input[type="text"],
+#checkoutPage select {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+#checkoutPage input[type="range"] {
+    width: 100%;
+    max-width: 20rem;
+}
+
+#submit,
+#backToResults {
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+}
+
+#submitButton {
+	background-color: rgb(235, 196, 82);
+}
+
+/* Ticket Number Selection */
+
+.ticket-input {
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+
+.ticket-input input {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #333;
+    border-radius: 8px;
 }
