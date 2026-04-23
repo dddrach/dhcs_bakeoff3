@@ -3,46 +3,87 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Bakeoff 3</title>
-		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="CSS/main.css">
 	</head>
 	<body>
-		<!-- You *may* edit the HTML this time. -->
-		<div id="main">
-			<!-- Middle: search + scrollable results (your section) -->
-			<section id="browsePanel" aria-label="Find a movie">
-				<label for="movieSearch">Search by title, actor, genre, or keyword</label>
-				<input type="search" id="movieSearch" placeholder="e.g. Bowie, sci-fi, dystopian…" autocomplete="off" />
-				<div id="movieList" class="movie-list" role="list"></div>
-			</section>
+		<h1 id = "header">DANG Movie Finder</h1>
+		<!-- Search bar -->
+		<div id="searchBarSection">
+			<label for="keywordSearch">Search by title, actor, genre, or keyword</label>
+			<input type="text" id="keywordSearch" placeholder="e.g. Bowie, sci-fi, dystopian…" />
+		</div>
 
-			<!-- Barebones checkout after a movie is chosen -->
-			<section id="checkoutPanel" class="panel-hidden" aria-label="Checkout">
+		<div class = "content">
+			<!-- Page 1: Enter Genre and Time Availability -->
+			<div id="searchPage">
+				<form>
+					<!-- Genre dropdown -->
+					<label for="genreSelect">Genres to Include: </label>
+					<div class="genre-dropdown">
+						<button type="button" id="genreDropdown">All genres</button>
+						<div id="genreSelect" class="hidden"></div>
+					</div>
+
+					<label for="excludeGenreSelect">Genres to Exclude: </label>
+					<div class="exclude-genre-dropdown">
+						<button type="button" id="excludeGenreDropdown">None selected</button>
+						<div id="excludeGenreSelect" class="hidden"></div>
+					</div>
+
+					<!-- Time dropdown -->
+					<label for="startTimeSelect">Start time: </label>
+					<select id="startTimeSelect">
+						<option value="">No start time preference</option>
+					</select>
+					<label for="endTimeSelect">End time: </label>
+					<select id="endTimeSelect">
+						<option value="">No end time preference</option>
+					</select>
+
+					<br><br>
+					<button type="button" id="goToResults">SEARCH</button>
+				</form>
+			</div>
+		
+			<!-- Page 2 (hidden initially): View Available Movies -->
+			<div id="resultsPage" class="hidden">
+				<button type="button" id="backToSearch">BACK to Search</button>
+				<section id="browsePanel" aria-label="Find a movie">
+					<div id="movieList" class="movie-list" role="list"></div>
+				</section>
+			</div>
+
+			<!-- Page 3 (hidden initially): Checkout tickets for a movie -->
+			<div id="checkoutPage" class="hidden">
+				<button type="button" id="backToResults">BACK to Results</button>
 				<h2>Checkout</h2>
 				<div id="checkoutSummary"></div>
-				<p class="checkout-note"></p>
-				<button type="button" id="backToBrowse">← Back to movies</button>
-			</section>
+			
+				<label for="finalTimeSelect">Select a showtime</label>
+				<select id="finalTimeSelect">
+					<option value="">Choose a show time</option>
+				</select>
+			
+				<label for="numberOfTickets">Number of Tickets</label>
 
-			<!-- Teammates: showtime + tickets + submit (keep IDs for main.js / Judge) -->
-			<form id="ticketForm">
-				<div class="integration-selects">
-					<label for="titleSelect">Movie (synced with your selection above)</label>
-					<select id="titleSelect"></select>
-					<label for="timeSelect">Select a showtime...</label>
-					<select id="timeSelect"></select>
+				<div class="ticket-input">
+					<input 
+						type="number" 
+						id="numberOfTickets" 
+						min="1" 
+						max="200" 
+						value="1" 
+					/>
 				</div>
-				<hr>
-				<label for="numberOfTickets">How many tickets?</label>
-				<input type="range" id="numberOfTickets" min="1" max="200" value="1" step="1" oninput="this.nextElementSibling.value = this.value"/>
-				<output>1</output>
-
+			
 				<label for="userName">Your name:</label>
-				<input type="text" id="userName"/>
-
-				<input type="button" id="submit" value="Send" />
-			</form>
+				<input type="text" id="userName" />
+			
+				<button type="button" id="submitButton">SUBMIT</button>
+			</div>
 		</div>
 	</body>
+
 	<!-- The following line, "./js/framework.js", *will* be changed before the real Bakeoff. -->
 	<script src="./js/framework.js"></script>
 	<!-- Your js code should be loaded from local file: -->
